@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1224" />
+  <title>DataLens Studio — Analytics Workspace</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">◈</span><span>DataLens <b>Studio</b><small>ANALYTICS PLATFORM</small></span></div>
+      <div class="nav-heading">WORKSPACE</div>
+      <nav><a class="nav-link active" href="#dashboard">◫ &nbsp; Overview</a><a class="nav-link" href="#visualization">▥ &nbsp; Visualizations</a><a class="nav-link" href="#data-table">☷ &nbsp; Data explorer</a><a class="nav-link" href="#ai-panel">✧ &nbsp; AI insights</a></nav>
+      <div class="sidebar-bottom"><div class="sidebar-card"><span class="sidebar-card-icon">✦</span><strong>Your data, in focus.</strong><p>Turn raw files into clear, interactive insights.</p></div><div class="creator-side"><div class="creator-avatar">RH</div><div><div class="owner-label">PROJECT CREATED BY</div><div class="creator-side-name">Rezuana Haque</div><div class="creator-side-sub">DataLens Studio · 2026</div></div></div><input aria-label="Your name" id="ownerName" class="owner-input" value="Rezuana Haque" readonly maxlength="60" hidden/></div>
+    </aside>
+    <main class="main" id="dashboard">
+      <div class="topline"><div class="breadcrumb">Workspace <span>/</span> Dashboard</div><span class="status-dot"><span class="live-indicator"></span> Workspace active</span></div>
+      <section class="creator-banner" aria-label="Project author"><div class="creator-banner-avatar">RH</div><div class="creator-banner-copy"><span class="creator-banner-kicker">DESIGNED & DEVELOPED BY</span><strong>Rezuana Haque</strong><span>Interactive data visualization project</span></div><span class="creator-banner-tag">CREATOR · 2026</span></section>
+      <section class="hero"><div class="hero-copy"><span class="eyebrow"><span class="eyebrow-line"></span> YOUR ANALYTICS WORKSPACE</span><h1>Data tells a story.<br><em>See the bigger picture.</em></h1><p>Transform spreadsheets into meaningful visuals. Explore patterns, compare performance, and uncover what matters.</p><div class="hero-trust"><span class="hero-trust-dot"></span> CSV · TSV · JSON supported</div></div><div class="hero-action"><div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div><div class="hero-glyph">▥</div><label class="upload-button" for="fileInput"><span>↥</span> Upload a dataset<input id="fileInput" type="file" accept=".csv,.tsv,.json,text/csv,application/json,text/tab-separated-values" hidden /></label><small>Start exploring in seconds</small></div></section>
+      <section class="upload-strip"><span class="file-icon">▤</span><div class="file-detail"><strong id="fileName">sample_sales.csv</strong><span id="fileMeta">Sample data is loaded to help you get started.</span></div><span id="saveStatus" class="save-status" role="status">Sample dataset</span><button class="text-button" id="sampleButton">Load sample</button><button class="text-button" id="forgetButton" title="Clear saved upload from this browser">Clear saved file</button><button class="text-button" id="downloadButton">↓ Download CSV</button></section>
+      <section class="stat-grid" id="stats"></section>
+      <section class="viz-section" id="visualization"><div class="section-title"><div><span class="section-kicker">EXPLORE YOUR DATA</span><h2>Visualizations</h2><p>Choose your dimensions and view to explore your data.</p></div><span class="section-hint" id="rowCount"></span></div>
+        <div class="panel chart-panel"><div class="chart-toolbar"><div class="control"><label for="chartType">Chart</label><select id="chartType"><option value="bar">Bar chart</option><option value="line">Line chart</option><option value="pie">Donut chart</option><option value="scatter">Scatter plot</option></select></div><div class="control"><label for="xColumn">X-axis / Category</label><select id="xColumn"></select></div><div class="control"><label for="yColumn">Y-axis / Value</label><select id="yColumn"></select></div><div class="control"><label for="aggregation">Aggregate</label><select id="aggregation"><option value="sum">Sum</option><option value="average">Average</option><option value="count">Count</option></select></div></div><div id="chart" class="chart" role="img" aria-label="Chart displaying uploaded data"></div><div id="chartCaption" class="chart-caption"></div><div class="chart-actions"><button id="exportChart" class="text-button">↓ Export chart as SVG</button></div></div>
+      </section>
+      <section class="quick-insight" aria-label="Automated dataset summary"><div><span class="section-kicker">INSTANT INSIGHT · NO API KEY NEEDED</span><h2>What your data says</h2><p id="localInsight" aria-live="polite">Upload a file to see a quick summary.</p></div><div class="quick-insight-icon">✧</div></section>
+      <section class="data-section" id="data-table"><div class="section-title"><div><span class="section-kicker">YOUR DATASET</span><h2>Data explorer</h2><p>Preview your file and filter rows instantly.</p></div></div><div class="panel table-panel"><div class="table-toolbar"><div class="search-field">⌕ &nbsp; <input id="search" type="search" placeholder="Search all columns..." aria-label="Filter data rows"></div><span id="tableCount"></span></div><div class="table-scroll"><table><thead id="tableHead"></thead><tbody id="tableBody"></tbody></table></div><div class="table-footer"><span id="pageLabel"></span><div><button id="prevPage" class="small-btn">← Previous</button><button id="nextPage" class="small-btn">Next →</button></div></div></div></section>
+      <section class="ai-section" id="ai-panel"><div class="section-title"><div><span class="section-kicker">SMART ANALYSIS</span><h2>AI data insights</h2><p>Optional: ask OpenAI for a short, data-driven explanation of your chart.</p></div></div><div class="panel ai-panel"><div class="ai-header"><span class="ai-icon">✧</span><div><strong>Ask AI about your data</strong><span>Uses a secure serverless API route when an API key is configured.</span></div></div><div class="ai-input-row"><input id="aiQuestion" aria-label="Question about data" placeholder="What patterns or outliers do you notice?" value="Summarize the main patterns in this chart."/><button id="askAi">Generate insights ↗</button></div><div id="aiResult" class="ai-result" role="status">Upload a dataset and select a chart, then ask for insights. Without an API key, all visualization features still work.</div></div></section>
+      <footer>© 2026 DataLens Studio · Crafted by Rezuana Haque · Your files are processed locally unless you request AI insights.</footer>
+    </main>
+  </div>
+  <script src="./main.js" defer></script>
+</body>
+</html>
