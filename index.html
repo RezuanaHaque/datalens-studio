@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111827" />
+  <title>DataLens Studio | Data Visualization</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">◈</span><span>DataLens <b>Studio</b><small>VISUAL ANALYTICS</small></span></div>
+      <div class="nav-heading">WORKSPACE</div>
+      <nav><a class="nav-link active" href="#dashboard">▦ &nbsp; Overview</a><a class="nav-link" href="#visualization">◷ &nbsp; Visualizations</a><a class="nav-link" href="#data-table">▤ &nbsp; Data explorer</a><a class="nav-link" href="#ai-panel">✧ &nbsp; AI insights</a></nav>
+      <div class="sidebar-bottom"><div class="owner-label">CREATED BY</div><input aria-label="Your name" id="ownerName" class="owner-input" placeholder="Enter your name" maxlength="60"/><p>Upload your own data and explore it visually.</p></div>
+    </aside>
+    <main class="main" id="dashboard">
+      <div class="topline"><div class="breadcrumb">Workspace <span>/</span> Dashboard</div><span class="status-dot">● &nbsp; Browser-based dashboard</span></div>
+      <section class="hero"><div><span class="eyebrow">DATA VISUALIZATION WORKSPACE</span><h1>Make sense of your data.</h1><p>Upload a file, explore trends, compare categories, and get a clearer picture of what matters.</p></div><label class="upload-button" for="fileInput">↥ &nbsp; Upload data<input id="fileInput" type="file" accept=".csv,.tsv,.json,text/csv,application/json,text/tab-separated-values" hidden /></label></section>
+      <section class="upload-strip"><span class="file-icon">▤</span><div class="file-detail"><strong id="fileName">sample_sales.csv</strong><span id="fileMeta">Sample data is loaded to help you get started.</span></div><button class="text-button" id="sampleButton">Load sample</button><button class="text-button" id="downloadButton">↓ Download CSV</button></section>
+      <section class="stat-grid" id="stats"></section>
+      <section class="viz-section" id="visualization"><div class="section-title"><div><h2>Visualizations</h2><p>Choose your dimensions and view to explore your data.</p></div><span class="section-hint" id="rowCount"></span></div>
+        <div class="panel chart-panel"><div class="chart-toolbar"><div class="control"><label for="chartType">Chart</label><select id="chartType"><option value="bar">Bar chart</option><option value="line">Line chart</option><option value="pie">Donut chart</option><option value="scatter">Scatter plot</option></select></div><div class="control"><label for="xColumn">X-axis / Category</label><select id="xColumn"></select></div><div class="control"><label for="yColumn">Y-axis / Value</label><select id="yColumn"></select></div><div class="control"><label for="aggregation">Aggregate</label><select id="aggregation"><option value="sum">Sum</option><option value="average">Average</option><option value="count">Count</option></select></div></div><div id="chart" class="chart" role="img" aria-label="Chart displaying uploaded data"></div><div id="chartCaption" class="chart-caption"></div></div>
+      </section>
+      <section class="data-section" id="data-table"><div class="section-title"><div><h2>Data explorer</h2><p>Preview your file and filter rows instantly.</p></div></div><div class="panel table-panel"><div class="table-toolbar"><div class="search-field">⌕ &nbsp; <input id="search" type="search" placeholder="Search all columns..." aria-label="Filter data rows"></div><span id="tableCount"></span></div><div class="table-scroll"><table><thead id="tableHead"></thead><tbody id="tableBody"></tbody></table></div><div class="table-footer"><span id="pageLabel"></span><div><button id="prevPage" class="small-btn">← Previous</button><button id="nextPage" class="small-btn">Next →</button></div></div></div></section>
+      <section class="ai-section" id="ai-panel"><div class="section-title"><div><h2>AI data insights</h2><p>Optional: ask OpenAI for a short, data-driven explanation of your chart.</p></div></div><div class="panel ai-panel"><div class="ai-header"><span class="ai-icon">✧</span><div><strong>Ask AI about your data</strong><span>Uses a secure serverless API route when an API key is configured.</span></div></div><div class="ai-input-row"><input id="aiQuestion" aria-label="Question about data" placeholder="What patterns or outliers do you notice?" value="Summarize the main patterns in this chart."/><button id="askAi">Generate insights ↗</button></div><div id="aiResult" class="ai-result" role="status">Upload a dataset and select a chart, then ask for insights. Without an API key, all visualization features still work.</div></div></section>
+      <footer>DataLens Studio · Your uploaded files stay in your browser unless you choose to request AI insights.</footer>
+    </main>
+  </div>
+  <script src="./main.js" defer></script>
+</body>
+</html>

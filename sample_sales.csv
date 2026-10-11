@@ -1,0 +1,13 @@
+Month,Region,Product,Revenue,Orders,Profit
+Jan,North,Notebook,8400,120,2900
+Jan,South,Markers,5600,90,1750
+Feb,North,Notebook,9600,135,3300
+Feb,South,Markers,6200,102,1990
+Mar,North,Notebook,11600,155,4100
+Mar,South,Markers,7900,113,2620
+Apr,North,Notebook,10800,148,3820
+Apr,South,Markers,9000,132,3090
+May,North,Notebook,13100,178,4750
+May,South,Markers,9800,142,3470
+Jun,North,Notebook,15200,195,5510
+Jun,South,Markers,11200,160,4050
